@@ -75,7 +75,10 @@ function focusTrap(element, userOptions) {
 
     state.active = true;
     state.paused = false;
-    state.nodeFocusedBeforeActivation = doc.activeElement;
+    state.nodeFocusedBeforeActivation =  
+      activateOptions && activateOptions.triggerElement
+        ? activateOptions.triggerElement
+        : doc.activeElement;
 
     var onActivate =
       activateOptions && activateOptions.onActivate
